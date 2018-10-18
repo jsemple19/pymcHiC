@@ -35,9 +35,17 @@ $DEBUG_MODE
 
 # Run specific
 export DIR_WORKSPACE=/home/ubelix/izb/md17s996/13102018_hic ### Path for OUTPUT 
-export FILE_INI=${DIR_WORKSPACE}/pymc4c-master-AG/Mc4C-Ini.tsv ### Path to INITIATION FILE
+export FILE_INI=${DIR_WORKSPACE}/pymcHiC/Mc4C-Ini.tsv ### Path to INITIATION FILE
+export FILE_NPZ=/home/ubelix/izb/md17s996/genomeVer/ws265/refstr.npz
 
-# External tools used in the pipeline
+
+# Run specific
+export DIR_WORKSPACE=/home/ubelix/izb/semple/labData/13102018_hic2/ ### Path for OUTPUT 
+export FILE_INI=${DIR_WORKSPACE}/pymcHiC/Mc4C-Ini.tsv ### Path to INITIATION FILE
+export FILE_NPZ=/home/ubelix/izb/semple/genomeVer/ws260/refstr.npz
+
+
+#External tools used in the pipeline
 #module add UHTS/Aligner/bwa/0.7.15
 #module add UHTS/Aligner/bowtie2/2.3.1 ## In Roy's is 2.2.6, but it is not in Vital-IT
 
@@ -81,7 +89,7 @@ bash $DIR_MC4C/sge_scripts/bwa-AG.sh
 python $DIR_MC4C/mc4c.py export \
        ${FILE_INI} \
        ${FILE_OUT}.bwa.sam \
-       /home/ubelix/izb/md17s996/genomeVer/ws265/refstr.npz \
+       ${FILE_NPZ} \
        ${FILE_OUT}.np
 
 #echo Jobs submitted: $HOLD_ID_LIST
