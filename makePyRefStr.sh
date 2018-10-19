@@ -15,9 +15,15 @@
 
 # Run specific
 export DIR_WORKSPACE=/home/ubelix/izb/md17s996/13102018_hic ### Path for OUTPUT 
+export DIR_GENOME=/home/ubelix/izb/md17s996/genomeVer/ws265 ### Path for OUTPUT
+export FILE_GENOME=${DIR_GENOME}/c_elegans.PRJNA13758.WS265.genomic.fa
+
+### Jenny specific settings - comment out
 export DIR_WORKSPACE=/home/ubelix/izb/semple/labData/13102018_hic2/ ### Path for OUTPUT
 export DIR_GENOME=/home/ubelix/semple/genomeVer/ws260
 export FILE_GENOME=${DIR_GENOME}/c_elegans.PRJNA13758.WS260.genomic.fa 
+### end of Jenny specific settings
+
 export FILE_INI=${DIR_WORKSPACE}/pymcHiC/Mc4C-Ini.tsv ### Path to INITIATION FIL
 
 # index genome
