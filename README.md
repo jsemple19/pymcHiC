@@ -2,7 +2,7 @@
 Scripts for mapping Nanopore HiC data.
 Move into the general directory for that sequencing experiment (not within the subfolders created by Nanopore for the test run and for various restarts of the run). Then type:
 ```
-git clone 
+git clone https://github.com/jsemple19/pymcHiC.git
 ```
 
 ## Combining FastQ files
