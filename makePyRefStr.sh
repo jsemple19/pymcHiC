@@ -12,14 +12,13 @@
 #SBATCH --job-name="NPZ"
 
 
-
 # Run specific
 export DIR_WORKSPACE=/home/ubelix/izb/md17s996/13102018_hic ### Path for OUTPUT 
 export DIR_GENOME=/home/ubelix/izb/md17s996/genomeVer/ws265 ### Path for OUTPUT
 export FILE_GENOME=${DIR_GENOME}/c_elegans.PRJNA13758.WS265.genomic.fa
 
 ### Jenny specific settings - comment out
-export DIR_WORKSPACE=/home/ubelix/izb/semple/labData/13102018_hic2/ ### Path for OUTPUT
+export DIR_WORKSPACE=/home/ubelix/izb/semple/labData/Moushumi/13102018_hic2 ### Path for OUTPUT
 export DIR_GENOME=/home/ubelix/izb/semple/genomeVer/ws260/sequence
 export FILE_GENOME=${DIR_GENOME}/c_elegans.PRJNA13758.WS260.genomic.fa 
 ### end of Jenny specific settings
