@@ -5,7 +5,7 @@
 #SBATCH --mail-type=none
 
 ## Allocate resources
-#SBATCH --time=01:00:00
+#SBATCH --time=06:00:00
 #SBATCH --mem-per-cpu=4G
 
 ## job name
@@ -28,7 +28,7 @@ export FILE_INI=${DIR_WORKSPACE}/pymcHiC/Mc4C-Ini.tsv ### Path to INITIATION FIL
 export FILE_NPZ=/home/ubelix/izb/md17s996/genomeVer/ws265/refstr.npz
 
 
-### Jenny specifi settings
+### Jenny specific settings
 export DIR_WORKSPACE=/home/ubelix/izb/semple/labData/Moushumi/13102018_hic2 ### Path for OUTPUT 
 export FILE_INI=${DIR_WORKSPACE}/pymcHiC/Mc4C-Ini.tsv ### Path to INITIATION FILE
 export FILE_NPZ=/home/ubelix/izb/semple/genomeVer/ws260/sequence/refstr.npz
@@ -80,36 +80,4 @@ python $DIR_MC4C/mc4c.py export \
        ${FILE_OUT}.bwa.sam \
        ${FILE_NPZ} \
        ${FILE_OUT}.np
-
-#echo Jobs submitted: $HOLD_ID_LIST
-#exit
-
-
-# Single: Split fastq data over several even sized files,
-# 	rename reads to unique numbers
-
-#HOLD_ID=`bsub $QSUBVARS $DIR_MC4C/sge_scripts/splitfq.sh | awk '{print $3}'`
-#HOLD_ID_LIST=$HOLD_ID_LIST"splitfq:$HOLD_ID;"
-
-# Array: Map primers to reads
-#HOLD_ID=`qsub $QSUBVARS -hold_jid $HOLD_ID -t 1:$NUM_TASKS $DIR_MC4C/sge_scripts/bowtie.sh | awk '{print $3}' | cut -f1 -d.`
-#HOLD_ID_LIST=$HOLD_ID_LIST"bowtie:$HOLD_ID;"
-
-# Array: Split reads by primers
-#HOLD_ID=`qsub $QSUBVARS -hold_jid_ad $HOLD_ID -t 1:$NUM_TASKS $DIR_MC4C/sge_scripts/splitpr.sh | awk '{print $3}' | cut -f1 -d.`
-#HOLD_ID_LIST=$HOLD_ID_LIST"splitpr:$HOLD_ID;"
-
-# Array: Split reads by restriction sites
-#export FILE_SOURCE=block
-#HOLD_ID=`qsub $QSUBVARS -hold_jid $HOLD_ID -t 1:$NUM_TASKS $DIR_MC4C/sge_scripts/splitre.sh | awk '{print $3}' | cut -f1 -d.`
-#HOLD_ID_LIST=$HOLD_ID_LIST"splitre:$HOLD_ID;"
-
-# Single: Merge split reads to one zipped file
-#HOLD_ID=`qsub $QSUBVARS -hold_jid $HOLD_ID $DIR_MC4C/sge_scripts/mergere.sh | awk '{print $3}'`
-#HOLD_ID_LIST=$HOLD_ID_LIST"mergere:$HOLD_ID;"
-
-# Single: Map split reads to reference genome
-#HOLD_ID=`qsub $QSUBVARS -hold_jid $HOLD_ID $DIR_MC4C/sge_scripts/bwa.sh | awk '{print $3}'`
-#HOLD_ID_LIST=$HOLD_ID_LIST"bwa:$HOLD_ID;"
-
 
