@@ -1,5 +1,9 @@
 # pymcHiC
-Scripts for mapping Nanopore HiC data
+Scripts for mapping Nanopore HiC data.
+Move into the general directory for that sequencing experiment (not within the subfolders created by Nanopore for the test run and for various restarts of the run). Then type:
+```
+git clone 
+```
 
 ## Combining FastQ files
 Copy the runCombine_example.sh file, removing the _example extension
@@ -31,4 +35,17 @@ DIR_WORKSPACE
 FILE_INI
 FILE_NPZ
 
-If you have not already done so, create a genome index npz file with makePyRefStr.sh (you need to change some settings in that file before running it).
+### Indexing genome and restriction sites
+Before running the scripts some preliminary processing must be done on the genome to index it with the aligner (bwa) and to index the location of the restriction enzyme sites(?) (in the refstr.npz file). This needs to be done only once for any genome version you use. Open the makePyRefStr.sh file and change the parameters for DIR_WORKSPACE, DIR_GENOME, FILE_GENOME and FILE_INI.
+Then submit the makePyRefStr.sh to the cluster.
+
+Now you can submit the hpc_mc4c.sh to the cluster
+
+## Converting the .npz file to .xslx and .csv
+Open the runToExcelToCsv.sh script and change the expName.
+Submit runToExcelToCsv.sh to the cluster.
+
+## Plotting results with R
+Open the plotPymcHiC.R script and change the working directory, and the expName. Change the path variable to point to the results directory ("../out/" in this case).
+Make sure the libraries mentioned at the top of the script are installed in R (install.packages() or biocLite()).
+Submit the runPlotPymcHiC.sh script to the cluster.
