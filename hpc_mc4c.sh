@@ -1,31 +1,20 @@
 #!/bin/bash
 # hpc_rtcc analysis modified by AG in supervision of RS . Folder with Initial files is already present (fastq, indexed genome.fa, Initiation.tsv)
 
-#SBATCH --mail-user=moushumi.das@izb.unibe.ch
-#SBATCH --mail-type=end,fail
+#SBATCH --mail-user=user@izb.unibe.ch
+#SBATCH --mail-type=none
 
 ## Allocate resources
-#SBATCH --time=24:00:00
-#SBATCH --mem-per-cpu=6G
+#SBATCH --time=01:00:00
+#SBATCH --mem-per-cpu=4G
 
 ## job name
-#SBATCH --job-name="align HiC"
+#SBATCH --job-name="alignHiC"
 
-## array job
-##SBATCH --array=1-10%5
-
-
-##BSUN -L /bin/bash
-##BSUB -e hpc_rtcc-%J-error.txt
-##BSUB -J hpc_rtccc-AG-All
-##BSUB -R "rusage[mem= 5273]"
-##BSUB -M 6000000
-##BSUB -q long
 
 module load vital-it
-#module add UHTS/Aligner/bwa/0.7.15
 module add UHTS/Aligner/bwa/0.7.17
-module add UHTS/Aligner/bowtie2/2.3.1 ## In Roy's is 2.2.6, but it is not in Vital-IT
+module add UHTS/Aligner/bowtie2/2.3.1 
 
 set -e
 
@@ -40,7 +29,7 @@ export FILE_NPZ=/home/ubelix/izb/md17s996/genomeVer/ws265/refstr.npz
 
 
 # Run specific
-export DIR_WORKSPACE=/home/ubelix/izb/semple/labData/13102018_hic2/ ### Path for OUTPUT 
+export DIR_WORKSPACE=/home/ubelix/izb/semple/labData/Moushumi/13102018_hic2 ### Path for OUTPUT 
 export FILE_INI=${DIR_WORKSPACE}/pymcHiC/Mc4C-Ini.tsv ### Path to INITIATION FILE
 export FILE_NPZ=/home/ubelix/izb/semple/genomeVer/ws260/refstr.npz
 
@@ -77,8 +66,8 @@ export NUM_TASKS=$((($FASTQ_NL+$LINESPERFILE-1)/$LINESPERFILE))
 
 HOLD_ID_LIST=""
 
-echo $(($FASTQWCL/4)) Reads found in $FILE_FASTQ
-echo Becomes $SPLITFILESNUM files
+#echo $((${FASTQWCL}/4)) Reads found in $FILE_FASTQ
+#echo Becomes $SPLITFILESNUM files
 export FILE_SOURCE=block
 		
 bash $DIR_MC4C/sge_scripts/splitfq.sh

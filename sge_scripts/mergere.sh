@@ -1,14 +1,9 @@
-#SBATCH --mail-user=moushumi.das@izb.unibe.ch
-#SBATCH --mail-type=end,fail
+##SBATCH --mail-user=moushumi.das@izb.unibe.ch
+##SBATCH --mail-type=none
 
 ## Allocate resources
-#SBATCH --time=00:24:00
-#SBATCH --mem-per-cpu=6G
-## array job
-#SBATCH --array=1-1
-
-##$ -l h_rt=00:30:00
-##$ -l h_vmem=1G
+##SBATCH --time=01:00:00
+##SBATCH --mem-per-cpu=4G
 
 
 $DEBUG_MODE

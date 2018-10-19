@@ -1,12 +1,10 @@
-#SBATCH --mail-user=moushumi.das@izb.unibe.ch
-#SBATCH --mail-type=end,fail
+##SBATCH --mail-user=moushumi.das@izb.unibe.ch
+##SBATCH --mail-type=none
 
 ## Allocate resources
-#SBATCH --time=01:00:00
-#SBATCH --mem-per-cpu=4G
+##SBATCH --time=01:00:00
+##SBATCH --mem-per-cpu=4G
 
-##$ -l h_rt=00:30:00
-##$ -l h_vmem=1G
 $DEBUG_MODE
 
 echo "Source: [$FILE_FASTQ]"
@@ -25,8 +23,10 @@ awk \
 		ALTOUT = OUTFASTQ"_"C".block.fq" }
 	(FNR == 1) {
 		++FILENUM }
+	((FNR) % 4 == 1 ) {
+		OLDID = $0 } 
 	((FNR) % 4 == 2) {
-		READID = "Fl.Id:"FILENUM";Rd.Id:"READNUM";Rd.Ln:"length($0);
+		READID = "Fl.Id:"FILENUM";Rd.Id:"READNUM";Rd.Ln:"length($0)";oldID:"OLDID;
 		print ">"READID > CUROUT;
 		print ">"READID > ALTOUT;
 	        ++READNUM;
@@ -39,4 +39,4 @@ awk \
 		ALTOUT = OUTFASTQ"_"C".block.fq" }
 	' $FILE_FASTQ
 
-# TODO: Add remove read if less than 500 bp
+# TODO: Add remove read if less than 500 bp:
