@@ -27,17 +27,23 @@ export FILE_GENOME=${DIR_GENOME}/c_elegans.PRJNA13758.WS260.genomic.fa
 export FILE_INI=${DIR_WORKSPACE}/pymcHiC/Mc4C-Ini.tsv ### Path to INITIATION FIL
 
 # index genome
-module load vital-it
-module add UHTS/Aligner/bwa/0.7.17; 
+if [ -e ${FILE_GENOME}.bwt ]
+then
+	module load vital-it;
+	module add UHTS/Aligner/bwa/0.7.17; 
 
-bwa index ${FILE_GENOME}
-
+	bwa index ${FILE_GENOME}
+fi
 
 # Where the tool/scripts are located
 export DIR_MC4C="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export MC4CTOOL=$DIR_MC4C/mc4c.py
 
+if [ -e  ${DIR_GENOME}/refstr.npz ]
+then
 python mc4c.py refrestr \
 	${FILE_INI} \
 	${FILE_GENOME} \
 	${DIR_GENOME}/refstr.npz
+fi
+
