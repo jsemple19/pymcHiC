@@ -14,11 +14,17 @@
 
 
 # Run specific
-export DIR_WORKSPACE=/home/ubelix/izb/md17s996/13102018_hic ### Path for OUTPUT 
-export DIR_WORKSPACE=/home/ubelix/izb/semple/labData/13102018_hic2/ ### Path for OUTPUT
-export DIR_GENOME=/home/ubelix/semple/genomeVer/ws260
+export DIR_WORKSPACE=/home/ubelix/izb/md17s996/13102018_hic ### Path for OUTPUT
+export DIR_GENOME=${HOME}/genomeVer/ws265
+export FILE_GENOME=${DIR_GENOME}/c_elegans.PRJNA13758.WS265.fa
+
+### Jenny specific settings - can be commented out 
+export DIR_WORKSPACE=${HOME}/labData/Moushumi/13102018_hic2 ### Path for OUTPUT
+export DIR_GENOME=${HOME}/genomeVer/ws260/sequence
 export FILE_GENOME=${DIR_GENOME}/c_elegans.PRJNA13758.WS260.genomic.fa 
-export FILE_INI=${DIR_WORKSPACE}/pymcHiC/Mc4C-Ini.tsv ### Path to INITIATION FIL
+#### End of Jenny settings
+
+export FILE_INI=${DIR_WORKSPACE}/pymcHiC/Mc4C-Ini.tsv ### Path to INITIATION FILE
 
 # index genome
 module load vital-it
