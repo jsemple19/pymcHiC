@@ -22,11 +22,9 @@ awk \
 		CUROUT = OUTFASTQ"_"C".block.fa";
 		ALTOUT = OUTFASTQ"_"C".block.fq" }
 	(FNR == 1) {
-		++FILENUM }
-	((FNR) % 4 == 1 ) {
-		OLDID = $0 } 
+		++FILENUM } 
 	((FNR) % 4 == 2) {
-		READID = "Fl.Id:"FILENUM";Rd.Id:"READNUM";Rd.Ln:"length($0)";oldID:"OLDID;
+		READID = "Fl.Id:"FILENUM";Rd.Id:"READNUM";Rd.Ln:"length($0);
 		print ">"READID > CUROUT;
 		print ">"READID > ALTOUT;
 	        ++READNUM;

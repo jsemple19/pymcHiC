@@ -1,11 +1,10 @@
 #! /bin/bash
 
-
-##SBATCH --mail-user=moushumi.das@izb.unibe.ch
-##SBATCH --mail-type=none
+#SBATCH --mail-user=jennifer.semple@izb.unibe.ch
+#SBATCH --mail-type=fail,end
 
 ## Allocate resources
-#SBATCH --time=04:00:00
+#SBATCH --time=24:00:00
 #SBATCH --mem-per-cpu=4G
 
 ## job name
@@ -38,11 +37,8 @@ fi
 export DIR_MC4C="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export MC4CTOOL=$DIR_MC4C/mc4c.py
 
-if [ ! -e  ${DIR_GENOME}/refstr.npz ]
-then
 python mc4c.py refrestr \
 	${FILE_INI} \
 	${FILE_GENOME} \
 	${DIR_GENOME}/refstr.npz
-fi
 
