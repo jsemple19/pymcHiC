@@ -1,7 +1,7 @@
 #! /bin/bash
 
-#SBATCH --mail-user=jennifer.semple@izb.unibe.ch
-#SBATCH --mail-type=fail,end
+#SBATCH --mail-user=moushumi.das@izb.unibe.ch
+#SBATCH --mail-type=none
 
 ## Allocate resources
 #SBATCH --time=24:00:00
@@ -17,9 +17,9 @@ export DIR_GENOME=/home/ubelix/izb/md17s996/genomeVer/ws265 ### Path for OUTPUT
 export FILE_GENOME=${DIR_GENOME}/c_elegans.PRJNA13758.WS265.genomic.fa
 
 ### Jenny specific settings - comment out
-export DIR_WORKSPACE=/home/ubelix/izb/semple/labData/Moushumi/13102018_hic2 ### Path for OUTPUT
-export DIR_GENOME=/home/ubelix/izb/semple/genomeVer/ws260/sequence
-export FILE_GENOME=${DIR_GENOME}/c_elegans.PRJNA13758.WS260.genomic.fa 
+#export DIR_WORKSPACE=/home/ubelix/izb/semple/labData/Moushumi/13102018_hic2 ### Path for OUTPUT
+#export DIR_GENOME=/home/ubelix/izb/semple/genomeVer/ws260/sequence
+#export FILE_GENOME=${DIR_GENOME}/c_elegans.PRJNA13758.WS260.genomic.fa 
 ### end of Jenny specific settings
 
 export FILE_INI=${DIR_WORKSPACE}/pymcHiC/Mc4C-Ini.tsv ### Path to INITIATION FIL
@@ -41,4 +41,4 @@ python mc4c.py refrestr \
 	${FILE_INI} \
 	${FILE_GENOME} \
 	${DIR_GENOME}/refstr.npz
-
+:

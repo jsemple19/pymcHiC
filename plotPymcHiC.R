@@ -1,5 +1,6 @@
 ### Values that need changing
-setwd("/home/ubelix/izb/semple/labData/Moushumi/13102018_hic2/pymcHiC")
+setwd("/home/ubelix/izb/md17s996/13102018_hic2/pymcHiC")
+#setwd("/home/ubelix/izb/semple/labData/Moushumi/13102018_hic2/pymcHiC")
 expName="13102018_hic2"
 path="../out/"
 

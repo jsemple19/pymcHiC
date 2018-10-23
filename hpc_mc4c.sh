@@ -23,15 +23,15 @@ export DEBUG_MODE="set -o xtrace"
 $DEBUG_MODE
 
 # Run specific
-export DIR_WORKSPACE=/home/ubelix/izb/md17s996/13102018_hic ### Path for OUTPUT 
+export DIR_WORKSPACE=/home/ubelix/izb/md17s996/13102018_hic2 ### Path for OUTPUT 
 export FILE_INI=${DIR_WORKSPACE}/pymcHiC/Mc4C-Ini.tsv ### Path to INITIATION FILE
 export FILE_NPZ=/home/ubelix/izb/md17s996/genomeVer/ws265/refstr.npz
 
 
 ### Jenny specific settings
-export DIR_WORKSPACE=/home/ubelix/izb/semple/labData/Moushumi/13102018_hic2 ### Path for OUTPUT 
-export FILE_INI=${DIR_WORKSPACE}/pymcHiC/Mc4C-Ini.tsv ### Path to INITIATION FILE
-export FILE_NPZ=/home/ubelix/izb/semple/genomeVer/ws260/sequence/refstr.npz
+#export DIR_WORKSPACE=/home/ubelix/izb/semple/labData/Moushumi/13102018_hic2 ### Path for OUTPUT 
+#export FILE_INI=${DIR_WORKSPACE}/pymcHiC/Mc4C-Ini.tsv ### Path to INITIATION FILE
+#export FILE_NPZ=/home/ubelix/izb/semple/genomeVer/ws260/sequence/refstr.npz
 ### end of Jenny specific settings
 
 #External tools used in the pipeline

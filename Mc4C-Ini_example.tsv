@@ -16,6 +16,6 @@ vp_start	121125892
 win_end	122250000
 win_start	120250000
 
-src_fastq	/home/ubelix/izb/md17s996/13102018_hic/out/13102018_hic2.fastq
+src_fastq	/home/ubelix/izb/md17s996/13102018_hic2/out/13102018_hic2.fastq
 exp_id	13102018_hic2
 ref_path	/home/ubelix/izb/md17s996/genomeVer/ws265/c_elegans.PRJNA13758.WS265.genomic.fa
