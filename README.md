@@ -60,6 +60,16 @@ Submit the runPlotPymcHiC.sh script to the cluster.
 ```
 sbatch runPlotPymcHiC.sh
 ```
+# output of script:
+1. The script reads in the file path/expName.csv adds the read ID and saves it as **path/expName_withReadID.csv**
+2. Adriana's plots (may be redundent with other plots below, but nicely plotted so kept them):
+- **path/expName_FragAperChr.pdf** Barplot of number of fragments per chromosome
+- **path/expName_FSizeperChr.pdf** Boxplot of size distribution of Fragments per Chr, wihtout and with outliers.
+- **CircleSize.txt path/expName_CircleSize.pdf** number of reads containing number of fragments.
+- **path/expName_ReadLeng_CircSize_2.pdf** distribution of read lengths for reads with a given number of fragments
+3. Jenny's old plots. These take into account the barcode of the sample and makes sparate plots for each barcode, or creates a pseudo barcode "0".  **path/expName_fragmentsPerRead.pdf**:
+- first plot is histogram of the number of fragments per read
+- second plot is the same as the first plot
 
 ## Making HiC contact matrix plots
 Open the makeContactMap.R script and change the working directory, and the expName. Change the path variable to point to the results directory ("../out/" in this case).
