@@ -59,7 +59,7 @@ Make sure the libraries mentioned at the top of the script are installed in R (B
 Submit the runPlotPymcHiC.sh script to the cluster.
 ```
 sbatch runPlotPymcHiC.sh
-
+```
 
 ## Making HiC contact matrix plots
 Open the makeContactMap.R script and change the working directory, and the expName. Change the path variable to point to the results directory ("../out/" in this case).
