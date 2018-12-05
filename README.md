@@ -38,22 +38,37 @@ FILE_NPZ
 ### Indexing genome and restriction sites
 Before running the scripts some preliminary processing must be done on the genome to index it with the aligner (bwa) and to index the location of the restriction enzyme sites(?) (in the refstr.npz file). This needs to be done only once for any genome version you use. Open the makePyRefStr.sh file and change the parameters for DIR_WORKSPACE, DIR_GENOME, FILE_GENOME and FILE_INI.
 Then submit the makePyRefStr.sh to the cluster.
-
+```
+sbatch makePyRefStr.sh
+```
 Now you can submit the hpc_mc4c.sh to the cluster
+```
+sbatch hpc_mc4c.sh
+```
 
 ## Converting the .npz file to .xslx and .csv
 Open the runToExcelToCsv.sh script and change the expName.
-Submit runToExcelToCsv.sh to the cluster.
+Submit runToExcelToCsv.sh to the cluster:
+```
+sbatch runToExcelToCsv.sh
+```
 
 ## Plotting results with R
 Open the plotPymcHiC.R script and change the working directory, and the expName. Change the path variable to point to the results directory ("../out/" in this case).
 Make sure the libraries mentioned at the top of the script are installed in R (BiocManager::install("nameOfPackage")).
 Submit the runPlotPymcHiC.sh script to the cluster.
+```
+sbatch runPlotPymcHiC.sh
+
 
 ## Making HiC contact matrix plots
 Open the makeContactMap.R script and change the working directory, and the expName. Change the path variable to point to the results directory ("../out/" in this case).
 Make sure the libraries mentioned at the top of the script are installed in R (BiocManager::install("nameOfPackage")).
-Submit the runMakeContactMap.sh to the cluster.
+
+Submit the runMakeContactMap.sh to the cluster:
+```
+sbatch runMakeContactMap.sh
+```
 The script produces matrices of contacts of different binSizes: saved in files called **contactMatrix_resbinSizebp.RDS**. It also produced genome wide contact plots called **genomeWideContacts_resbinSizebp.pdf**, and plots chromosome by chromosome called **contactsByChr_resbinSizebp.pdf**
 
 ## getSeqDepthStats.sh
