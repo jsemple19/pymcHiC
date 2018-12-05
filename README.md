@@ -49,3 +49,12 @@ Submit runToExcelToCsv.sh to the cluster.
 Open the plotPymcHiC.R script and change the working directory, and the expName. Change the path variable to point to the results directory ("../out/" in this case).
 Make sure the libraries mentioned at the top of the script are installed in R (install.packages() or biocLite()).
 Submit the runPlotPymcHiC.sh script to the cluster.
+
+## getSeqDepthStats.sh
+Script to get statistics of minimum, maximum, median and mean coverage over the genome. Note that median is probably the best measure of central tendency as the coverage is not expected to be normally distributed.
+You need to run the script on a sam or bam file. If it is run on a sam file, it will convert it to bam, and sort it. The original sam file will be deleted as it takes up much more space than the bam binary version.
+to run:
+'''
+./getSeqDepthStats.sh ../out/nameOfSamFile.sam
+'''
+The output will be nameOfSamFile_depthStats.txt
