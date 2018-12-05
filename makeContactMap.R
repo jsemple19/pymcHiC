@@ -105,7 +105,7 @@ p1<-ggplot(m4plot,aes(Var1,Var2,fill=log(value,10))) +
   annotate("text",x=rep(-3,6),y=chrLabelPos[1:6],label=Chrnames) +
   annotate("text",y=rep(-3,6),x=chrLabelPos[1:6],label=Chrnames)
 
-ggsave(filename=paste0(path,"genomeWideContacts_res",binSize,"bp.pdf"),plot=p1,device=pdf,
+ggsave(filename=paste0(path,"genomeWideContacts_res",binSize,"bp.pdf"),plot=p1,device="pdf",
        width=19,height=19,units="cm")
 
 ##################################################
