@@ -47,8 +47,14 @@ Submit runToExcelToCsv.sh to the cluster.
 
 ## Plotting results with R
 Open the plotPymcHiC.R script and change the working directory, and the expName. Change the path variable to point to the results directory ("../out/" in this case).
-Make sure the libraries mentioned at the top of the script are installed in R (install.packages() or biocLite()).
+Make sure the libraries mentioned at the top of the script are installed in R (BiocManager::install("nameOfPackage")).
 Submit the runPlotPymcHiC.sh script to the cluster.
+
+## Making HiC contact matrix plots
+Open the makeContactMap.R script and change the working directory, and the expName. Change the path variable to point to the results directory ("../out/" in this case).
+Make sure the libraries mentioned at the top of the script are installed in R (BiocManager::install("nameOfPackage")).
+Submit the runMakeContactMap.sh to the cluster.
+The script produces matrices of contacts of different binSizes: saved in files called **contactMatrix_resbinSizebp.RDS**. It also produced genome wide contact plots called **genomeWideContacts_resbinSizebp.pdf**, and plots chromosome by chromosome called **contactsByChr_resbinSizebp.pdf**
 
 ## getSeqDepthStats.sh
 Script to get statistics of minimum, maximum, median and mean coverage over the genome. Note that median is probably the best measure of central tendency as the coverage is not expected to be normally distributed.
@@ -57,4 +63,4 @@ to run:
 ```
 ./getSeqDepthStats.sh ../out/nameOfSamFile.sam
 ```
-The output will be nameOfSamFile_depthStats.txt
+The output will be **nameOfSamFile_depthStats.txt**
