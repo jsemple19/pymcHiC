@@ -56,5 +56,5 @@ You need to run the script on a sam or bam file. If it is run on a sam file, it 
 to run:
 ```
 ./getSeqDepthStats.sh ../out/nameOfSamFile.sam
-
+```
 The output will be nameOfSamFile_depthStats.txt
