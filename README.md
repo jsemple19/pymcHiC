@@ -67,9 +67,28 @@ sbatch runPlotPymcHiC.sh
 - **path/expName_FSizeperChr.pdf** Boxplot of size distribution of Fragments per Chr, wihtout and with outliers.
 - **CircleSize.txt path/expName_CircleSize.pdf** number of reads containing number of fragments.
 - **path/expName_ReadLeng_CircSize_2.pdf** distribution of read lengths for reads with a given number of fragments
-3. Jenny's old plots. These take into account the barcode of the sample and makes sparate plots for each barcode, or creates a pseudo barcode "0".  **path/expName_fragmentsPerRead.pdf**:
+3. Jenny's old plots. These take into account the barcode of the sample and makes separate plots for each barcode, or creates a pseudo barcode "0".  **path/expName_fragmentsPerRead.pdf**:
 - first plot is histogram of the number of fragments per read
-- second plot is the same as the first plot
+- second plot is the same as the first plot but expressed as frequency
+- third plot is the same as the second, but zoomed in on reads with 1-10 fragment
+4. Filter for reads with at least 2 fragments (multi-fragment reads) and plot the number of chromosomes present in a read (irrespective of how many fragments the come from. **expName_chrsPerRead.pdf**:
+- first plot is the count of reads with 1,2,3 etc chromosomes represented in them
+- second plot is the same as the first but represented as a frequency
+These plots are split by barcode as well.
+5. Plotting hops (=contacts). These plots do not yet take account of barcode. The table of hops contains the following data:
+ contact table has several additional fields as follows:
+- AlnChr2 - chromosome to which the second fragment aligns to
+- hopType - within same chromosome (Intra) or between chromosomes (Inter)
+- hopSize - minimal absolute distance between fragment ends
+- sameStrand - are both fragments on the both strand?
+- hopOri - orientation of hop:
+       tandem:     -frag1-->  -frag2-->  or  <--frag2- <--frag1-
+       inverted:   -frag2--> -frag1-->   or  <--frag1- <--frag2-
+       convergent: -frag1--> <--frag2-   or  -frag2--> <--frag1-
+       divergent:  <--frag2- -frag1-->   or  <--frag1- -frag2-->
+- hopOverlap - do the aligned fragments overlap?
+- firstChr - chr,strand,start and end of alignment of first fragment in pair
+- secondChr - chr, strand, start and end of alignment of second fragment in pair
 
 ## Making HiC contact matrix plots
 Open the makeContactMap.R script and change the working directory, and the expName. Change the path variable to point to the results directory ("../out/" in this case).
