@@ -82,10 +82,10 @@ These plots are split by barcode as well.
 - hopSize - minimal absolute distance between fragment ends
 - sameStrand - are both fragments on the both strand?
 - hopOri - orientation of hop:
-       tandem:     -frag1-->  -frag2-->  or  <--frag2- <--frag1-
-       inverted:   -frag2--> -frag1-->   or  <--frag1- <--frag2-
-       convergent: -frag1--> <--frag2-   or  -frag2--> <--frag1-
-       divergent:  <--frag2- -frag1-->   or  <--frag1- -frag2-->
+       - tandem:     -frag1-->  -frag2-->  or  <--frag2- <--frag1-
+       - inverted:   -frag2--> -frag1-->   or  <--frag1- <--frag2-
+       - convergent: -frag1--> <--frag2-   or  -frag2--> <--frag1-
+       - divergent:  <--frag2- -frag1-->   or  <--frag1- -frag2-->
 - hopOverlap - do the aligned fragments overlap?
 - firstChr - chr,strand,start and end of alignment of first fragment in pair
 - secondChr - chr, strand, start and end of alignment of second fragment in pair
