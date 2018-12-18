@@ -4,6 +4,12 @@ Move into the general directory for that sequencing experiment (not within the s
 ```
 git clone https://github.com/jsemple19/pymcHiC.git
 ```
+## Basecalling with Albacore
+Albacore must be installed in an conda environment named albacore_env
+go into the pymcHiC directory and run the wrapper script for basecalling (runBasecall.sh which calls basecall.sh)
+```
+sbatch runBasecall.sh
+```
 
 ## Combining FastQ files
 Copy the runCombine_example.sh file, removing the _example extension
