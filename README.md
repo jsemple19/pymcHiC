@@ -1,15 +1,20 @@
 # pymcHiC
 Scripts for mapping Nanopore HiC data.
-Move into the general directory for that sequencing experiment (not within the subfolders created by Nanopore for the test run and for various restarts of the run). Then type:
+
+Organise your data such that each batch of sequencing (a particular library on a particular flowcell) is a single folder. Restarting the run multiple times will create different subfolders, but put these all under this same directory. In this directory you should also download the script folder:
 ```
 git clone https://github.com/jsemple19/pymcHiC.git
 ```
 ## Basecalling with Albacore
 Albacore must be installed in an conda environment named albacore_env
-go into the pymcHiC directory and run the wrapper script for basecalling (runBasecall.sh which calls basecall.sh)
+go into the pymcHiC directory with all the scripts and run the wrapper script for basecalling (runBasecall.sh which calls basecall.sh)
 ```
 sbatch runBasecall.sh
 ```
+The output fastq will all be in the workspace directory
+
+## Archiving the fast5 files
+To avoid exceeding the file quota of the server, you should compress all the fast5 files into .tar.gz archive.
 
 ## Combining FastQ files
 Copy the runCombine_example.sh file, removing the _example extension
