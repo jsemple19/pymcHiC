@@ -39,3 +39,18 @@ do
     nanoQC $fq -o $outDir
 done
 
+
+# run Minion_qc
+# source: https://github.com/roblanf/minion_qc
+module load vital-it
+module load R/3.5.1
+
+MINIONQC=/home/pmeister/software/MinIONQC.R
+
+Rscript ${MINIONQC} -i ../sequencing_summary.txt -o ../workspace/qc/ 
+
+
+#library(IONiseR)
+#library(ggplot2)
+#library(gridExtra)
+
