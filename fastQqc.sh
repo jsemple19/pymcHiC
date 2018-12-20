@@ -4,21 +4,34 @@
 
 source activate albacore_env
 
+# create qc output directory
 mkdir -p ../workspace/qc
 
-fastqFiles=(../workspace/pass/*/*.fastq)
+# get list of all fastq files
+fastqFiles=(../workspace/*/*/*.fastq)
 
 #fq=${fastqFiles[0]}
 
 for fq in ${fastqFiles[@]};
 do
-    # extract name elements for output naming
-    myBase=`echo $fq | tr -d ".fastq"`
+    ##  extract name elements for output naming
+
+    # extract runID & fq file number from file name
+    myBase=`basename $fq`
+    myBase=`echo $myBase | tr -d ".fastq"`
+
+    # extract barcode number from folder name
     bcode=`dirname $fq | cut -d"/" -f4`
-    outDir=../workspace/qc/${bcode}${myBase}/
+    readType=`dirname $fq | cut -d"/" -f3`
+
+    # create output directory based on readType barcode runID and file number 
+    outDir=../workspace/qc/${readType}_${bcode}${myBase}/
     mkdir -p $outDir
+
+    # assemble names for some of the output files
     outStats=${outDir}pauvreStats.txt
     outPlot=pauvreMarginPlot.png
+
     # run QC programmes
     pauvre stats -f $fq > ${outStats}
     pauvre marginplot -f $fq -o $outPlot
