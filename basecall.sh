@@ -15,3 +15,4 @@ rm sequencing_*
 rm configuration.cfg
 
 read_fast5_basecaller.py --flowcell FLO-MIN106 --kit SQK-LSK108 --barcoding --output_format fastq -n 0 -q 800000 --input ../ --recursive --save_path ../ --worker_threads 8
+
